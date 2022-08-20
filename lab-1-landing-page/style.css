@@ -1,3 +1,7 @@
+/*
+general styles
+*/
+
 body {
   all: unset;
   background-color: #fff;
@@ -6,26 +10,42 @@ body {
 
 a {
   text-decoration: none;
-  color: #000;
+  color: #202336;
 }
 
 p {
   font-family: "Mulish", sans-serif;
+  font-size: 17px;
   color: #7d7987;
   padding: 0;
   margin: 0;
+}
+
+
+.w-70 {
+  width: 70%;
 }
 
 .title {
   font-family: "Playfair Display", serif;
   font-size: 64px;
   font-weight: 700;
+  line-height: 80px;
+  color: #202336;
 }
 
 .title-smaller {
   font-size: 36px;
   font-weight: 700;
+  line-height: 50px;
   margin: 0;
+}
+
+.important-text {
+  font-size: 22px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  color: #202336;
 }
 
 .flex {
@@ -38,6 +58,10 @@ p {
   min-width: 70%;
 }
 
+/*
+header navigation styles
+*/
+
 .horisontal-non-style-list {
   list-style: none;
 }
@@ -46,41 +70,9 @@ p {
   color: #b8becd;
 }
 
-.my-6 {
-  margin-top: 80px;
-  margin-bottom: 80px;
-}
-
-.my-4 {
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
-.my-2 {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.mx-4 {
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-.mx-2 {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.pl-4 {
-  padding-left: 150px;
-}
-
-.mr-auto {
-  margin-right: auto;
-}
-
-.mt-auto {
-  margin-top: auto;
+.unactive:hover {
+  color: #202336;
+  transition: 0.5s;
 }
 
 .logo-img {
@@ -133,8 +125,10 @@ p {
   width: 132px;
 }
 
-.red {
-  background-color: red;
+.text {
+  line-height: 30px;
+  font-size: 17px;
+
 }
 
 .text-orange-link {
@@ -163,6 +157,7 @@ p {
 
 .selector {
   font-size: 15px;
+  color: #4a4c53;
   width: 220px;
   height: 52px;
   border: 0.8px solid #afb0b9;
@@ -173,7 +168,7 @@ select {
   display: block;
   padding: 0.8rem 2rem;
   font-family: inherit;
-  /** for the dropdown indicator */
+  /* for the dropdown indicator */
   appearance: none;
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
@@ -202,7 +197,7 @@ td {
   position: relative;
 }
 .card-text {
-    font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -212,6 +207,48 @@ td {
   text-align: left;
 }
 .card-text strong {
-    color: #000;
+  color: #202336;
 }
 
+.my-6 {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.my-4 {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.my-2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.mx-4 {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.mx-2 {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.pl-4 {
+  padding-left: 150px;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+ 
