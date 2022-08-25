@@ -1,0 +1,37 @@
+/*
+header navigation styles
+*/
+
+.horisontal-non-style-list {
+    list-style: none;
+  }
+  
+  .unactive {
+    color: #b8becd;
+  }
+  
+  .unactive:hover {
+    color: #202336;
+    transition: 0.5s;
+  }
+  
+  .logo-img {
+    float: left;
+    width: 41px;
+    height: 41px;
+  }
+  
+  .horisontal-non-style-list > li {
+    display: inline;
+  }
+  
+  .text {
+    line-height: 30px;
+    font-size: 17px;
+  
+  }
+  
+  .text-orange-link {
+    color: #fb8f1d;
+  }
+  
