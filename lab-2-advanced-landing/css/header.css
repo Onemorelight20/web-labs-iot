@@ -4,6 +4,8 @@ header navigation styles
 
 .horisontal-non-style-list {
     list-style: none;
+    display: flex;
+    justify-content: space-between;
   }
   
   .unactive {
@@ -15,11 +17,7 @@ header navigation styles
     transition: 0.5s;
   }
   
-  .logo-img {
-    float: left;
-    width: 41px;
-    height: 41px;
-  }
+
   
   .horisontal-non-style-list > li {
     display: inline;
@@ -35,3 +33,83 @@ header navigation styles
     color: #fb8f1d;
   }
   
+  .header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  
+.header-menu {
+  display: none;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 786px) {
+  .header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 20px;
+    margin: 0;
+    z-index: 10;
+    background-color: #fff;
+  }
+
+  .header-menu {
+    display: block;
+  }
+
+  .header-menu .menu-icon {
+    height: 60px;
+  }
+
+ .logo-img{
+    min-width: 60px;
+  }
+
+  .header .centered-container{
+    padding: 20px;
+  }
+
+
+  .header-nav {
+    background: #fff;
+    position: fixed;
+    top: 110px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 0;
+    clip-path: circle(0 at top left);
+    transition: clip-path 0.9s ease-in;
+  }
+
+  .header-nav.open {
+    clip-path: circle(1000px at top);
+  }
+
+  .header-nav ul {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .header-nav li {
+    padding-top: 3vh;
+    flex: 1;
+  }
+
+  .header-nav a {
+    margin-top: 5vh;
+    font-weight: 500;
+    display: block;
+    font-size: 32px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  body {
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+}
+

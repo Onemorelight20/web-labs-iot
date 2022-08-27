@@ -49,20 +49,21 @@ td {
 
 .img-card {
   border-radius: 8px;
+  width: 100%;
 }
 
-.centered-container .flex {
+.centered-container.flex {
+  display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.box {
-  position: relative;
-}
 .card-text {
   font-family: "Inter", sans-serif;
-  position: absolute;
-  bottom: 0px;
+  position: relative;
+  bottom: 45px;
   left: 0px;
+  width: 50%;
   padding: 5px 20px 0 0;
   background-color: #fff;
   border-top-right-radius: 8px;
@@ -70,4 +71,109 @@ td {
 }
 .card-text strong {
   color: #202336;
+}
+
+.trip-selection-block .selectors-flex {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.trip-selection-block .selectors-flex .selector {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.block-explore-the-world .centered-container.flex  {
+  flex-direction: row-reverse;
+}
+
+
+
+@media only screen and (max-width: 786px) {
+  .centered-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    overflow: hidden;
+  }
+
+  .air-balloon-with-man {
+    width: 80vw;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .featured-destinations-block .text-block {
+    display: block;
+    text-align: left;
+  }
+  .featured-destinations-block.my-4 {
+    margin: 0;
+  }
+
+  .trip-selection-block {
+    padding-top: 100px;
+    display: block;
+  }
+
+  .box {
+    width: 100%;
+    align-self: center;
+  }
+
+  .column {
+    width: 100%;
+  }
+
+  .selectors-flex {
+    width: 100%;
+    align-items: center;
+  }
+
+  .w-70 {
+    width: 100%;
+  }
+
+  .trip-selection-block .flex.centered-container {
+    display: block;
+  }
+
+  .block-img {
+    margin: 50px auto 0;
+    text-align: center;
+  }
+
+  .man-on-earth-img {
+    position: static;
+    width: 70vw;
+  }
+
+  .block-explore-the-world .centered-container.flex {
+    display: block;
+  }
+
+  .featured-destinations-block .text-orange-link {
+    font-size: larger;
+  }
+
+  .air-balloon-with-man {
+    margin: 0;
+  }
+
+  .featured-destinations-block {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  .block-explore-the-world .pl-4 {
+    padding-left: 0;
+  }
 }

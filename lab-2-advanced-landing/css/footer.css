@@ -1,0 +1,17 @@
+@media only screen and (min-width: 320px) and (max-width: 786px) {
+    footer .centered-container {
+        display: block;
+    }
+
+    footer .centered-container .flex {
+        display: block;
+        margin: 0 10%;
+    }
+    footer .centered-container .flex p {
+        padding-bottom: 20px;
+    }
+
+    footer .centered-container:last-child {
+        padding: 30px 0;
+    }
+}

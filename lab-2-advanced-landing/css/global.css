@@ -3,9 +3,9 @@ general styles
 */
 
 body {
-  all: unset;
   background-color: #fff;
   font-family: "Inter", sans-serif;
+  text-align: center;
 }
 
 a {
@@ -50,6 +50,11 @@ p {
   padding-left: 150px;
 }
 
+.py-4 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 .mr-auto {
   margin-right: auto;
 }
@@ -69,8 +74,8 @@ p {
 
 .centered-container {
   text-align: center;
-  padding: 1% 15%;
-  min-width: 70%;
+  padding: 1% 13%;
+  max-width: 1440px;
 }
 
 .title {
@@ -97,10 +102,8 @@ p {
 
 .flex {
   display: flex;
-}
-
-.to-right {
-  float: right;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .align-left {
@@ -133,4 +136,11 @@ p {
   background-color: #fb8f1d;
   color: #fff;
   transition: 0.5s;
+}
+
+@media only screen and (max-width: 786px) { 
+  .my-6 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
 }
