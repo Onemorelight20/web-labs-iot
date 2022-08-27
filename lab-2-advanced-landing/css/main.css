@@ -3,16 +3,9 @@
   width: 50%;
 }
 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 .hr-short {
   width: 32px;
   height: 2px;
-
   background: #202336;
   border-radius: 4px;
   margin: 0;
@@ -38,10 +31,17 @@ select {
   background-size: 1em;
 }
 
-td {
-  padding-right: 20px;
-  padding-bottom: 20px;
+.man-on-earth-img {
+  width: 40vw;
+  max-width: 800px;
 }
+
+.air-balloon-with-man {
+  width: 40vw;
+  max-width: 800px;
+  margin: auto;
+}
+
 
 .bg-gray {
   background-color: #f8f8f8;
@@ -90,12 +90,13 @@ td {
 
 
 
+
 @media only screen and (max-width: 786px) {
   .centered-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px;
+    /* padding: 40px; */
     overflow: hidden;
   }
 
@@ -163,9 +164,6 @@ td {
     font-size: larger;
   }
 
-  .air-balloon-with-man {
-    margin: 0;
-  }
 
   .featured-destinations-block {
     display: block;

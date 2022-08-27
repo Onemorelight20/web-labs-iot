@@ -49,7 +49,6 @@ header navigation styles
     left: 0;
     right: 0;
     top: 0;
-    padding: 20px;
     margin: 0;
     z-index: 10;
     background-color: #fff;
@@ -59,12 +58,12 @@ header navigation styles
     display: block;
   }
 
-  .header-menu .menu-icon {
-    height: 60px;
+  .header-menu .menu-icon, .header .logo-img {
+    height: 40px;
   }
 
  .logo-img{
-    min-width: 60px;
+    height: 50px;
   }
 
   .header .centered-container{
@@ -75,7 +74,7 @@ header navigation styles
   .header-nav {
     background: #fff;
     position: fixed;
-    top: 110px;
+    top: 80px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -84,25 +83,37 @@ header navigation styles
     transition: clip-path 0.9s ease-in;
   }
 
+  .header .mx-4, .header a {
+    margin: 0;
+  }
+
   .header-nav.open {
     clip-path: circle(1000px at top);
+    align-items: center;
   }
 
   .header-nav ul {
     flex-direction: column;
-    height: 100%;
+    height: 80%;
+    width: 80%;
+    margin: auto;
   }
 
-  .header-nav li {
-    padding-top: 3vh;
+  /* .header-nav li {
     flex: 1;
-  }
+    padding: 0.5vh;
+  } */
 
   .header-nav a {
-    margin-top: 5vh;
+    margin-top: 0;
     font-weight: 500;
     display: block;
     font-size: 32px;
+  }
+
+  .header .mx-4 {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 
