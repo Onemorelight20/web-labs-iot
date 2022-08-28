@@ -115,8 +115,10 @@ select {
     display: block;
     text-align: left;
   }
-  .featured-destinations-block.my-4 {
-    margin: 0;
+
+  .featured-destinations-block {
+    display: block;
+    margin-top: 35px;
   }
 
   .trip-selection-block {
@@ -164,10 +166,6 @@ select {
     font-size: larger;
   }
 
-
-  .featured-destinations-block {
-    display: block;
-  }
 }
 
 @media only screen and (max-width: 1440px) {

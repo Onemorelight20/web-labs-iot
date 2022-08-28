@@ -88,7 +88,7 @@ header navigation styles
   }
 
   .header-nav.open {
-    clip-path: circle(1000px at top);
+    clip-path: circle(85vh at top);
     align-items: center;
   }
 
@@ -98,11 +98,6 @@ header navigation styles
     width: 80%;
     margin: auto;
   }
-
-  /* .header-nav li {
-    flex: 1;
-    padding: 0.5vh;
-  } */
 
   .header-nav a {
     margin-top: 0;
