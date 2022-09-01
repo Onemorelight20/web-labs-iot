@@ -21,7 +21,7 @@
 
     <title>FilmliF</title>
   </head>
-  <body class="bg-light container my-2">
+  <body class="bg-light container my-2" id="body">
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">FilmliF</a>
@@ -39,10 +39,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="create.html">Create a film</a>
+              <a
+                id="home-link"
+                class="nav-link"
+                aria-current="page"
+                href="index.html"
+                >Home</a
+              >
             </li>
           </ul>
           <form class="d-flex" role="search" id="search-by-title-form">
@@ -75,21 +78,115 @@
               id="sort-by-reviews"
             />
           </div>
-          <hr>
+          <hr />
           <div>
-          <form id="timeCountForm">
-            <label>Count total time in minutes needed to watch all this films?</label>
-            <button class="btn btn-outline-success my-3" type="submit">
-              Of course
-            </button>
-          </form>
+            <form id="time-count-form">
+              <label
+                >Count total time in minutes needed to watch all this
+                films?</label
+              >
+              <button class="btn btn-outline-success my-3" type="submit">
+                Of course
+              </button>
+              <button
+                type="button"
+                class="btn btn-success"
+                data-bs-toggle="modal"
+                data-bs-target="#modal"
+                id="add-film-button"
+              >
+                Add a film
+              </button>
+            </form>
+            <div>
+              <div
+                class="modal fade"
+                id="modal"
+                tabindex="-1"
+                aria-labelledby="modal-form-label"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modal-form-label">
+                        Add a film
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                        id="modal-close-btn"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <form
+                        id="film-form"
+                        class="row justify-content-center"
+                        autocomplete="off"
+                      >
+                        <div class="col-8 mb-3">
+                          <label for="filmTitle">Film title</label>
+                          <input
+                            class="form-control"
+                            id="film-title"
+                            type="text"
+                            placeholder="Enter film title"
+                            required
+                          />
+                        </div>
+                        <div class="col-8 mb-3">
+                          <label for="lengthOfFilm"
+                            >Film length in minutes</label
+                          >
+                          <input
+                            class="form-control"
+                            id="length-of-film"
+                            type="number"
+                            placeholder="Enter film length in minutes"
+                            min="1"
+                            required
+                          />
+                        </div>
+                        <div class="col-8 mb-3">
+                          <label for="reviewsAmount"
+                            >Amount of reviews on IMDB</label
+                          >
+                          <input
+                            class="form-control"
+                            id="reviews-amount"
+                            type="number"
+                            placeholder="Enter film length in minutes"
+                            min="0"
+                            required
+                          />
+                        </div>
+                        <div class="col-8">
+                          <input
+                            class="btn btn-success"
+                            type="submit"
+                            value="Submit"
+                          />
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        </div>
-
-
 
         <div class="col-sm-8">
-          <table class="table">
+          <table class="table" id="data-table">
             <thead>
               <tr>
                 <th>Film title</th>
@@ -97,39 +194,8 @@
                 <th>Amount of reviews on IMDB</th>
               </tr>
             </thead>
-            <tbody id="films-list">
-                <tr>
-                  <td id="filmTitle">Dead poets society</td>
-                  <td id="lengthOfFilm">134</td>
-                  <td id="reviewsAmount">222</td>
-                  <td>
-                    <a href="#" class="btn btn-outline-warning btn-sm" id="edit">Edit</a>
-                    <a href="#" class="btn btn-outline-danger btn-sm" id="delete">Delete</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td id="filmTitle">The Shawshank Redemption</td>
-                  <td id="lengthOfFilm">142</td>
-                  <td id="reviewsAmount">26000000</td>
-                  <td>
-                    <a href="#" class="btn btn-outline-warning btn-sm" id="edit">Edit</a>
-                    <a href="#" class="btn btn-outline-danger btn-sm" id="delete">Delete</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td id="filmTitle">Requiem for a Dream</td>
-                  <td id="lengthOfFilm">102</td>
-                  <td id="reviewsAmount">832000</td>
-                  <td>
-                    <a href="#" class="btn btn-outline-warning btn-sm" id="edit">Edit</a>
-                    <a href="#" class="btn btn-outline-danger btn-sm" id="delete">Delete</a>
-                  </td>
-                </tr>
-            </tbody>
+            <tbody id="films-list"></tbody>
           </table>
-
-
-
         </div>
       </div>
     </div>
