@@ -44,6 +44,8 @@ export const editFilm = () => {
   const film = getFilmFromFormFields();
   updateFilm(id, film).then(refetchAllFilms);
   clearFormFields();
+  modalFormLabel.textContent = "";
+  modalFormLabel.innerHTML = "Add a film";
   document.getElementById("modal-close-btn").click();
 };
 
