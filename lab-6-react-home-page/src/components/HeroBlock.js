@@ -1,10 +1,13 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 import { Box, Typography } from "@mui/material";
+import {useStyles} from './styles.js';
 
 const filmPicture = require("../assets/photo-film.jpg");
 
 const HeroBlock = () => {
+  const classes = useStyles()
+
   return (
     <Box container sx={{ m: 10 }}>
       <Grid container spacing={2}>
@@ -27,12 +30,7 @@ const HeroBlock = () => {
           <Box
             component="img"
             src={filmPicture}
-            sx={{
-              height: "30vw",
-              maxHeight: 400,
-              minHeight: 300,
-              borderRadius: 5
-            }}
+            className={classes.bigImage}
           />
         </Grid>
       </Grid>

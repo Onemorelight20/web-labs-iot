@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 const FilmCard = ({imgSrc, imgAlt, cardTitle, cardText}) => {
-    return <div>
+    return <>
              <Card sx={{ maxWidth: 345}}>
       <CardMedia
         component="img"
@@ -28,7 +28,7 @@ const FilmCard = ({imgSrc, imgAlt, cardTitle, cardText}) => {
         <Button size="small">Learn More</Button>
       </CardActions>
     </Card>
-    </div>;
+    </>;
 }
 
 
