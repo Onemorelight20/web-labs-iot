@@ -1,9 +1,10 @@
 import React from "react";
-import FilmCard from "./FilmCard";
+import FilmCard from "./reusable/FilmCard";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/system/Box";
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { centeredContainer } from "./styles";
 
 const fingtersClubImgSrc = require("../assets/fighters-club.jpg");
 const interstellarImgSrc = require("../assets/interstellar.jpg");
@@ -19,12 +20,11 @@ const data = [
 
 const Cards = () => {
   return (
-    <>
-      <Box container sx={{ m: 10, mb:20 }}>
-        <Typography variant="h4" my="10px">The best choices</Typography>
-        <Grid container justifyContent="space-around" spacing={2}>
-          {data.map((record) => 
-            <Grid item>
+      <Box sx={centeredContainer}>
+        <Typography variant="h4" mb="10px">The best choices</Typography>
+        <Grid container spacing={2} sx={{justifyContent: "space-between"}}>
+          {data.map((record, id) => 
+            <Grid item key={id}>
             <FilmCard
               imgSrc={record[0]}
               imgAlt={record[1]}
@@ -34,11 +34,10 @@ const Cards = () => {
           </Grid>
           )}
         </Grid>
-        <Grid container justifyContent="center" sx={{my: 5}}>
+        <Grid container sx={{my: 5, justifyContent: "center"}}>
         <Button variant="contained" size="large" >More films</Button>
         </Grid>
       </Box>
-    </>
   );
 };
 

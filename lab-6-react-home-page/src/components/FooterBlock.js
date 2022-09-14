@@ -1,12 +1,13 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 import { Box, Stack, Typography } from "@mui/material";
-import { FacebookIconStyled, InstagramIconStyled, LinkedInIconStyled, MovieFilterIconStyled } from "./Icons";
+import { FacebookIconStyled, InstagramIconStyled, LinkedInIconStyled, MovieFilterIconStyled } from "./reusable/Icons";
+import { centeredContainer } from "./styles";
 
 const FooterBlock = () => {
 
     return (
-        <Box container sx={{ mx: 10, my: 4 }}>
+        <Box sx={{...centeredContainer, py:3}}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={4}>
             <Typography variant="h6">FilmliF</Typography>
