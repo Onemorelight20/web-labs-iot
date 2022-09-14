@@ -1,7 +1,7 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 import { Box, Typography } from "@mui/material";
-import {useStyles} from './styles.js';
+import {useStyles, centeredContainer} from './styles.js';
 
 const filmPicture = require("../assets/photo-film.jpg");
 
@@ -9,7 +9,7 @@ const HeroBlock = () => {
   const classes = useStyles()
 
   return (
-    <Box container sx={{ m: 10 }}>
+    <Box sx={centeredContainer} >
       <Grid container spacing={2}>
         <Grid item xs>
           <Typography variant="h2">Some text about films</Typography>

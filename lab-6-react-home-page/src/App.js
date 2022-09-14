@@ -1,4 +1,4 @@
-import NavigationBar from "./components/NavigationBar";
+import NavigationBar from "./components/navigation-bar/NavigationBar";
 import HeroBlock from "./components/HeroBlock";
 import Cards from "./components/Cards";
 import FooterBlock from "./components/FooterBlock";

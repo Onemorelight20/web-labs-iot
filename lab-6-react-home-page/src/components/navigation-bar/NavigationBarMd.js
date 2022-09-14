@@ -4,11 +4,11 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import MovieFilterIcon from "@mui/icons-material/MovieFilter";
 import Toolbar from "@mui/material/Toolbar";
-import { logoTextStyle } from "./styles";
+import { logoTextStyle } from "../styles";
 
 const NavigationBarMd = ({ pages, handleCloseNavMenu }) => {
   return (
-    <Toolbar disableGutters  alignItems="center">
+    <Toolbar disableGutters>
       
       <MovieFilterIcon
             sx={{ display: { xs: "none", md: "flex" }, mr: 1, alignSelf:"center" }}
