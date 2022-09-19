@@ -1,16 +1,27 @@
+import React from "react";
 import NavigationBar from "./components/navigation-bar/NavigationBar";
-import HeroBlock from "./components/HeroBlock";
-import Cards from "./components/Cards";
+import HomePage from "./HomePage";
+import Catalog from "./Catalog";
+import Cart from "./Cart";
 import FooterBlock from "./components/FooterBlock";
-import 'normalize.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "normalize.css";
 
-function App() { 
+function App() {
   return (
     <>
-      <NavigationBar />
-      <HeroBlock />
-      <Cards />
-      <hr/>
+      <BrowserRouter>
+        <NavigationBar />
+        <Routes>
+          <Route path="/">
+            <Route index element={<HomePage />}></Route>
+            <Route path="catalog" element={<Catalog />}></Route>
+            <Route path="cart" element={<Cart />}></Route>
+            <Route path="*" element={<HomePage />}></Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+      <hr />
       <FooterBlock />
     </>
   );

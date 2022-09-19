@@ -1,44 +1,56 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
+
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import MovieFilterIcon from "@mui/icons-material/MovieFilter";
-import Toolbar from "@mui/material/Toolbar";
-import { logoTextStyle } from "../styles";
+import Grid from "@mui/material/Grid";
 
-const NavigationBarMd = ({ pages, handleCloseNavMenu }) => {
+import SearchBlock from "./SearchBlock";
+import { logoTextStyle } from "../styles";
+import { BasicStyledLink } from "../reusable/StyledLinks";
+
+const NavigationBarMd = ({ pages }) => {
+  let linksBody = pages.map((pageInfo) => {
+    const [page, path] = pageInfo;
+
+    return (
+      <BasicStyledLink to={path}>
+        <Button>{page}</Button>
+      </BasicStyledLink>
+    );
+  });
+
   return (
-    <Toolbar disableGutters>
-      
-      <MovieFilterIcon
-            sx={{ display: { xs: "none", md: "flex" }, mr: 1, alignSelf:"center" }}
-          />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              ...logoTextStyle,
-              display: { xs: "none", md: "flex" }, alignSelf:"center",
-              flexGrow: 1
-            }}
-          >
-            FilmliF
-          </Typography>
-      <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-        {pages.map((page) => (
-          <Button
-            key={page}
-            onClick={handleCloseNavMenu}
-            sx={{ my: 1, color: "white", display: "block" }}
-          >
-            {page}
-          </Button>
-        ))}
-      </Box>
-      
-    </Toolbar>
+    <Grid
+      container
+      sx={{
+        display: { xs: "none", md: "flex" },
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
+      <Grid
+        item
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "flex-start",
+        }}
+      >
+        <MovieFilterIcon />
+        <Typography variant="h6" noWrap sx={{ ...logoTextStyle }}>
+          FilmliF
+        </Typography>
+        <Box>{linksBody}</Box>
+      </Grid>
+      <Grid item>
+        <Routes>
+          <Route path="/catalog" element={<SearchBlock />}></Route>
+        </Routes>
+      </Grid>
+    </Grid>
   );
 };
 
