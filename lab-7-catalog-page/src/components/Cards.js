@@ -16,7 +16,7 @@ const Cards = () => {
       <Typography variant="h4" mb="10px">
         The best choices
       </Typography>
-      <Grid container spacing={2} sx={{ justifyContent: "space-between" }}>
+      <Grid container spacing={2} sx={{ justifyContent: "space-around" }}>
         {data.slice(0, 3).map((record, id) => (
           <Grid item key={id}>
             <FilmCard

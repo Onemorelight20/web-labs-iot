@@ -5,6 +5,8 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { Routes, Route } from "react-router-dom";
+import Item from "../Item";
 
 const FilmCard = ({ imgSrc, imgAlt, description, filmTitle, price }) => {
   return (
@@ -23,8 +25,12 @@ const FilmCard = ({ imgSrc, imgAlt, description, filmTitle, price }) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" variant="contained">Buy</Button>
-          <Button size="small" variant="contained">View More</Button>
+          <Button size="small" variant="contained">
+            Buy
+          </Button>
+          <Button size="small" variant="contained">
+            View More
+          </Button>
         </CardActions>
       </Card>
     </>
