@@ -5,8 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Routes, Route } from "react-router-dom";
-import Item from "../Item";
+import { BasicStyledLink } from "./StyledLinks";
 
 const FilmCard = ({ imgSrc, imgAlt, description, filmTitle, price }) => {
   return (
@@ -29,7 +28,9 @@ const FilmCard = ({ imgSrc, imgAlt, description, filmTitle, price }) => {
             Buy
           </Button>
           <Button size="small" variant="contained">
+            <BasicStyledLink to={'/item/'+filmTitle} sx={{color: "white"}}>
             View More
+            </BasicStyledLink>
           </Button>
         </CardActions>
       </Card>
