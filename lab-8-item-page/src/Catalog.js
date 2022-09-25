@@ -22,7 +22,7 @@ function Catalog() {
         </Typography>
         <Grid container spacing={2} sx={{ justifyContent: "space-between" }}>
           {data.map((record, id) => (
-            <Grid item key={id}>
+            <Grid item key={record.filmTitle + id}>
               <FilmCard
                 imgSrc={record.imgSrc}
                 imgAlt={record.imgSrc}
