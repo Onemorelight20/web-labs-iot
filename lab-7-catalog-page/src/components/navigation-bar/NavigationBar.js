@@ -5,7 +5,7 @@ import Container from "@mui/material/Container";
 import NavigationBarMd from "./NavigationBarMd";
 import NavigationBarXs from "./NavigationBarXs";
 
-const pages = ["Home", "Catalog", "Cart"];
+const pages = [["Home", "/"], ["Catalog", "catalog"], ["Cart", "cart"]];
 
 const NavigationBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);

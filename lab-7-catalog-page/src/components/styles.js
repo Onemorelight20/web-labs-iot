@@ -2,7 +2,6 @@ import { makeStyles } from "@material-ui/styles";
 
 const logoTextStyle = {
   mr: 2,
-  display: { xs: "flex", md: "none" },
   fontFamily: "monospace",
   fontWeight: 700,
   letterSpacing: ".3rem",

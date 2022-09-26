@@ -6,7 +6,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MovieFilterIcon from "@mui/icons-material/MovieFilter";
 import Grid from "@mui/material/Grid";
+import { BasicStyledLink } from "../reusable/StyledLinks";
+import SearchBlock from "./SearchBlock";
 import { logoTextStyle } from "../styles";
+import { Route, Routes } from "react-router-dom";
 
 const NavigationBarXs = ({
   pages,
@@ -14,19 +17,30 @@ const NavigationBarXs = ({
   handleCloseNavMenu,
   anchorElNav,
 }) => {
+  const menuItems = pages.map((pageInfo) => {
+    const [page, path] = pageInfo;
+
+    return (
+      <BasicStyledLink to={path}>
+        <MenuItem key={page} onClick={handleCloseNavMenu}>
+          <Typography textAlign="center">{page}</Typography>
+        </MenuItem>
+      </BasicStyledLink>
+    );
+  });
+
   return (
     <Grid
       container
       sx={{
         display: { xs: "flex", md: "none" },
         alignItems: "center",
-        justifyContent: "space-between",
+        justifyContent: "center",
       }}
     >
-      <Grid item>
+      <Grid item xs={6}>
         <IconButton
           size="large"
-          aria-label="account of current user"
           aria-controls="menu-appbar"
           aria-haspopup="true"
           onClick={handleOpenNavMenu}
@@ -41,15 +55,19 @@ const NavigationBarXs = ({
           open={Boolean(anchorElNav)}
           onClose={handleCloseNavMenu}
         >
-          {pages.map((page) => (
-            <MenuItem key={page} onClick={handleCloseNavMenu}>
-              <Typography textAlign="center">{page}</Typography>
-            </MenuItem>
-          ))}
+          {menuItems}
         </Menu>
       </Grid>
 
-      <Grid item sx={{ display: "flex", alignItems: "center" }}>
+      <Grid
+        item
+        xs={6}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "flex-end",
+        }}
+      >
         <MovieFilterIcon />
         <Typography
           variant="h5"
@@ -62,6 +80,16 @@ const NavigationBarXs = ({
           FilmliF
         </Typography>
       </Grid>
+      <Routes>
+        <Route
+          path="/catalog"
+          element={
+            <Grid xs={8} sx={{ mb: 2 }}>
+              <SearchBlock />
+            </Grid>
+          }
+        ></Route>
+      </Routes>
     </Grid>
   );
 };
