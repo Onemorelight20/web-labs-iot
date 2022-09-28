@@ -66,6 +66,8 @@ const Catalog = () => {
   };
 
   useEffect(() => {
+    setFilmsToShow(filmsData);
+    applyFilters();
     setFilmsToShow(currFilms => (currFilms.filter(film => film.filmTitle.includes(searchBlockText))))
   }, [searchBlockText]);
 
@@ -84,7 +86,7 @@ const Catalog = () => {
         <Typography variant="h5" mb="10px">
           Catalog
         </Typography>
-        <Grid container spacing={2} sx={{ justifyContent: "space-between" }}>
+        <Grid container spacing={4} sx={{ justifyContent: "left" }}>
           {filmsToShow.map((record, id) => (
             <Grid item key={record.filmTitle + id}>
               <FilmCard
