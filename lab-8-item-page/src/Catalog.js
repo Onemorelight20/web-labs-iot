@@ -38,7 +38,6 @@ const Catalog = () => {
 
   const applyFilters = () => {
     setFilmsToShow(filmsData);
-    console.log(filtersData);
     let filtered = [...filmsData];
     if (filtersData.PRICE_FILTER !== -1) {
       const [minVal, maxVal] = priceFilterCases[filtersData.PRICE_FILTER];

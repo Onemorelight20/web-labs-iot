@@ -11,7 +11,6 @@ export function PriceSelector() {
 
   const handleChange = (event) => {
     const newValue = event.target.value;
-    console.log('NEW VALUE IS >>>', newValue);
     setFiltersData((obj) => ({...obj, PRICE_FILTER: newValue}));
   };
 
