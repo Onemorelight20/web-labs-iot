@@ -1,7 +1,8 @@
-import * as React from "react";
+import React, { useContext } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
+import { SearchBlockContext } from "./SearchBlockContextProvider";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -46,6 +47,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function SearchBlock() {
+  const [searchBlockText, setSearchBlockText] = useContext(SearchBlockContext);
+
+
   return (
     <Search>
       <SearchIconWrapper>
@@ -54,6 +58,7 @@ export default function SearchBlock() {
       <StyledInputBase
         placeholder="Search…"
         inputProps={{ "aria-label": "search" }}
+        onChange={(e) => setSearchBlockText(e.target.value)}
       />
     </Search>
   );
