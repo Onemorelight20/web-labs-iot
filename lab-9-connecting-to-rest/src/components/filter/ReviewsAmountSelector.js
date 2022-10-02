@@ -11,9 +11,8 @@ export function ReviewsAmountSelector() {
 
   const handleChange = (event) => {
     const newValue = event.target.value;
-    setFiltersData((obj) => ({...obj, REVIEWS_FILTER: newValue}));
+    setFiltersData((obj) => ({ ...obj, REVIEWS_FILTER: newValue }));
   };
-
 
   return (
     <Box sx={{ minWidth: 120 }}>
