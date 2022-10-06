@@ -89,6 +89,9 @@ const Catalog = () => {
               )
           )
         );
+        setFilmsToShow((currFilms) =>
+          currFilms.filter((film) => film.filmTitle.includes(searchBlockText))
+        );
         setIsDataLoading(false);
       })
       .catch((error) => {
@@ -105,9 +108,8 @@ const Catalog = () => {
   };
 
   useEffect(() => {
-    setFilmsToShow((currFilms) =>
-    currFilms.filter((film) => film.filmTitle.includes(searchBlockText))
-  );
+    setIsDataLoading(true);
+    applyFilters();
   }, [searchBlockText]);
 
   return (
@@ -125,7 +127,6 @@ const Catalog = () => {
         <Typography variant="h5" mb="10px">
           Catalog
         </Typography>
-        {console.log("IS DATA LOADING", isDataLoading)}
         {isDataLoading && <DataLoadingSymbol />}
         {filmsData == -1 && (
           <ErrorBlock

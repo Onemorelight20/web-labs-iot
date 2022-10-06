@@ -18,7 +18,6 @@ const Cards = () => {
   useEffect(() => {
       setIsDataLoading(true);
     if (filmsData == -1 || (Array.isArray(filmsData) && filmsData.length > 0)) {
-      console.log("FILMS DATA WHEN LOADED ", filmsData);
       setIsDataLoading(false);
     }
   }, [filmsData]);
