@@ -5,7 +5,7 @@ import { PriceSelector } from "./filter/PriceSelector";
 import { ReviewsAmountSelector } from "./filter/ReviewsAmountSelector";
 import { FilmLengthSelector } from "./filter/FilmLengthSelector";
 
-export function FilterBlock({applyFilters, discardFilters}) {
+export function FilterBlock({ applyFilters, discardFilters }) {
   return (
     <Grid container spacing={2}>
       <Grid item>

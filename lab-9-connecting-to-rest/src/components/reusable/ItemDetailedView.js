@@ -6,6 +6,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { ItemsContext } from "../ItemsContextProvider";
 import { useNavigate, useParams } from "react-router-dom";
+import Image from "material-ui-image";
 import { centeredContainer } from "../styles";
 
 const ItemDetailedView = () => {
@@ -19,12 +20,11 @@ const ItemDetailedView = () => {
       <Box sx={centeredContainer}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={4}>
-            <CardMedia
-              component="img"
+            <Image
               alt={film.filmTitle}
               height="200"
-              image={film.imgSrc}
-            />
+              src={film.imgSrc}
+              />
           </Grid>
           <Grid item xs={12} md={8}>
             <Typography gutterBottom variant="h5" component="div">

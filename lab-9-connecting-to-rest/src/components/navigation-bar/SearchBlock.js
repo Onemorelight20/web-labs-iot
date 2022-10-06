@@ -59,6 +59,7 @@ export default function SearchBlock() {
         placeholder="Search…"
         inputProps={{ "aria-label": "search" }}
         onChange={(e) => setSearchBlockText(e.target.value)}
+        value={searchBlockText}
       />
     </Search>
   );
