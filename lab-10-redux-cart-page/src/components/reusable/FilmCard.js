@@ -8,17 +8,19 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { getRandomFilmImg } from "../../api/images-api";
 import { BasicStyledLink } from "./StyledLinks";
+import { useSelector, useDispatch } from "react-redux";
+import { addFilmId, removeFilmId } from "../../features/cart/cartSlice";
 
 const FilmCard = ({ imgSrc, imgAlt, description, filmTitle, price }) => {
+  const filmIds = useSelector((state) => state.cart.value);
+  const dispatch = useDispatch();
+
   return (
     <>
       <Card sx={{ maxWidth: 345 }}>
         <CardContent>
           <CardMedia>
-            <Image
-              src={imgSrc}
-              height="140"
-            />
+            <Image src={imgSrc} height="140" />
           </CardMedia>
           <Typography gutterBottom variant="h5" component="div">
             {filmTitle}
@@ -31,9 +33,23 @@ const FilmCard = ({ imgSrc, imgAlt, description, filmTitle, price }) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" variant="contained">
-            Buy
-          </Button>
+          {filmIds.has(filmTitle) ? (
+            <Button
+              size="small"
+              variant="contained"
+              onClick={() => dispatch(removeFilmId(filmTitle))}
+            >
+              Remove from cart
+            </Button>
+          ) : (
+            <Button
+              size="small"
+              variant="contained"
+              onClick={() => dispatch(addFilmId(filmTitle))}
+            >
+              Add to cart
+            </Button>
+          )}
           <Button size="small" variant="contained">
             <BasicStyledLink to={"/item/" + filmTitle} sx={{ color: "white" }}>
               View More
