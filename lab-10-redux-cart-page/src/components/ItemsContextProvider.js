@@ -11,7 +11,6 @@ export default ({ children }) => {
   useEffect(() => {
     getAllFilms()
       .then((result) => {
-        console.log(result);
         setFilmsData(
           result.map(
             (record) =>

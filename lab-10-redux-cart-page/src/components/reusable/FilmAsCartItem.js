@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import CardMedia from "@mui/material/CardMedia";
 import { useSelector, useDispatch } from "react-redux";
 import { centeredContainer } from "../styles";
-import { addFilmId, removeFilmId } from "../../features/cart/cartSlice";
+import { addFilmId, removeFilmId } from "../../redux/cartSlice";
 
 const FilmAsCartItem = ({ imgSrc, imgAlt, description, filmTitle, price }) => {
   const dispatch = useDispatch();

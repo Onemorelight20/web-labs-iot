@@ -6,10 +6,9 @@ import CardMedia from "@mui/material/CardMedia";
 import Image from "material-ui-image";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { getRandomFilmImg } from "../../api/images-api";
 import { BasicStyledLink } from "./StyledLinks";
 import { useSelector, useDispatch } from "react-redux";
-import { addFilmId, removeFilmId } from "../../features/cart/cartSlice";
+import { addFilmId, removeFilmId } from "../../redux/cartSlice";
 
 const FilmCard = ({ imgSrc, imgAlt, description, filmTitle, price }) => {
   const filmIds = useSelector((state) => state.cart.value);
