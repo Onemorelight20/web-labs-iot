@@ -1,13 +1,9 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import Image from "material-ui-image";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import CardMedia from "@mui/material/CardMedia";
 import { useSelector, useDispatch } from "react-redux";
-import { centeredContainer } from "../styles";
-import { addFilmId, removeFilmId } from "../../redux/cartSlice";
+import { addFilmId, removeFilmId } from "../../redux/action";
 
 const FilmAsCartItem = ({ imgSrc, imgAlt, description, filmTitle, price }) => {
   const dispatch = useDispatch();

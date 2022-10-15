@@ -20,6 +20,4 @@ export const cartSlice = createSlice({
     }
 })
 
-export const { addFilmId, removeFilmId } = cartSlice.actions
-
 export default cartSlice.reducer

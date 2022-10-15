@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { BasicStyledLink } from "./StyledLinks";
 import { useSelector, useDispatch } from "react-redux";
-import { addFilmId, removeFilmId } from "../../redux/cartSlice";
+import { addFilmId, removeFilmId } from "../../redux/action";
 
 const FilmCard = ({ imgSrc, imgAlt, description, filmTitle, price }) => {
   const filmIds = useSelector((state) => state.cart.value);

@@ -7,7 +7,7 @@ import { ItemsContext } from "../ItemsContextProvider";
 import { useNavigate, useParams } from "react-router-dom";
 import { centeredContainer } from "../styles";
 import { useSelector, useDispatch } from "react-redux";
-import { addFilmId, removeFilmId } from "../../redux/cartSlice";
+import { addFilmId, removeFilmId } from "../../redux/action";
 
 const ItemDetailedView = () => {
   const navigate = useNavigate();

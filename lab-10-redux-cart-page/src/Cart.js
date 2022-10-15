@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import FilmAsCartItem from "./components/reusable/FilmAsCartItem";
 import { Typography } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { addFilmId, removeFilmId } from "./redux/cartSlice";
+import { addFilmId, removeFilmId } from "./redux/action";
 import { useNavigate } from "react-router-dom";
 import { ItemsContext } from "./components/ItemsContextProvider";
 
