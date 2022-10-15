@@ -1,30 +1,28 @@
 import React, { useContext } from "react";
 import Box from "@mui/material/Box";
-import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { ItemsContext } from "../ItemsContextProvider";
 import { useNavigate, useParams } from "react-router-dom";
-import Image from "material-ui-image";
 import { centeredContainer } from "../styles";
+import { useSelector, useDispatch } from "react-redux";
+import { addFilmId, removeFilmId } from "../../redux/action";
 
 const ItemDetailedView = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [filmsData, setFilmsData] = useContext(ItemsContext);
   const film = filmsData.find((el) => el.filmTitle == id);
+  const filmIds = useSelector((state) => state.cart.value);
+  const dispatch = useDispatch();
 
   return (
     <>
       <Box sx={centeredContainer}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={4}>
-            <Image
-              alt={film.filmTitle}
-              height="200"
-              src={film.imgSrc}
-              />
+            <img alt={film.filmTitle} height="200px" src={film.imgSrc} />
           </Grid>
           <Grid item xs={12} md={8}>
             <Typography gutterBottom variant="h5" component="div">
@@ -53,9 +51,23 @@ const ItemDetailedView = () => {
                 </Button>
               </Grid>
               <Grid item>
-                <Button size="small" variant="contained">
-                  Add to cart
-                </Button>
+                {filmIds.has(film.filmTitle) ? (
+                  <Button
+                    size="small"
+                    variant="contained"
+                    onClick={() => dispatch(removeFilmId(film.filmTitle))}
+                  >
+                    Remove from cart
+                  </Button>
+                ) : (
+                  <Button
+                    size="small"
+                    variant="contained"
+                    onClick={() => dispatch(addFilmId(film.filmTitle))}
+                  >
+                    Add to cart
+                  </Button>
+                )}
               </Grid>
             </Grid>
           </Grid>

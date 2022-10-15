@@ -31,7 +31,6 @@ const Catalog = () => {
     setIsDataLoading(true);
     getAllFilms()
       .then((result) => {
-        console.log(result);
         setFilmsToShow(
           result.map(
             (record) =>
@@ -75,7 +74,6 @@ const Catalog = () => {
     console.log("paramsForFilter are ", paramsForFilter);
     getFilmsFiltered(paramsForFilter)
       .then((result) => {
-        console.log(result);
         setFilmsToShow(
           result.map(
             (record) =>

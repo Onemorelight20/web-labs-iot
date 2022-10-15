@@ -1,4 +1,5 @@
 import React from "react";
+import { Provider } from "react-redux";
 import NavigationBar from "./components/navigation-bar/NavigationBar";
 import HomePage from "./HomePage";
 import Catalog from "./Catalog";
@@ -10,10 +11,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FiltersContextProvider from "./components/FiltersContextProvider";
 import "normalize.css";
 import SearchBlockContextProvider from "./components/navigation-bar/SearchBlockContextProvider";
+import store from "./redux/store";
 
 function App() {
   return (
     <>
+      <Provider store={store}>
       <ItemsContextProvider>
         <FiltersContextProvider>
           <SearchBlockContextProvider>
@@ -34,6 +37,7 @@ function App() {
           </SearchBlockContextProvider>
         </FiltersContextProvider>
       </ItemsContextProvider>
+      </Provider>
     </>
   );
 }
