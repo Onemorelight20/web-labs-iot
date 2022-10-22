@@ -4,15 +4,14 @@ import Button from "@mui/material/Button";
 import FilmAsCartItem from "./components/reusable/FilmAsCartItem";
 import { Typography } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { addFilmId, removeFilmId } from "./redux/action";
 import { useNavigate } from "react-router-dom";
 import { ItemsContext } from "./components/ItemsContextProvider";
+import { BasicStyledLink } from "./components/reusable/StyledLinks"
 
 function Cart() {
   const [filmsData, setFilmsData] = useContext(ItemsContext);
   const [filmsToShow, setFilmsToShow] = useState(filmsData);
   const filmIds = useSelector((state) => state.cart.value);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   if (filmIds.size == 0) {
@@ -69,15 +68,9 @@ function Cart() {
               >
                 Go back
               </Button>
-              <Button
-                variant="outlined"
-                color="primary"
-                onClick={() => {
-                  filmIds.forEach((id) => dispatch(removeFilmId(id)));
-                }}
-              >
-                Buy
-              </Button>
+              <BasicStyledLink to="/checkout">
+                <Button variant="contained">Checkout & Buy</Button>
+              </BasicStyledLink>
             </Grid>
           </Grid>
         </Grid>

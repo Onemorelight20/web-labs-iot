@@ -12,31 +12,36 @@ import FiltersContextProvider from "./components/FiltersContextProvider";
 import "normalize.css";
 import SearchBlockContextProvider from "./components/navigation-bar/SearchBlockContextProvider";
 import store from "./redux/store";
+import { CheckoutPage } from "./CheckoutPage";
 
 function App() {
   return (
     <>
       <Provider store={store}>
-      <ItemsContextProvider>
-        <FiltersContextProvider>
-          <SearchBlockContextProvider>
-            <BrowserRouter>
-              <NavigationBar />
-              <Routes>
-                <Route path="/">
-                  <Route index element={<HomePage />}></Route>
-                  <Route path="catalog" element={<Catalog />}></Route>
-                  <Route path="cart" element={<Cart />}></Route>
-                  <Route path="item/:id" element={<ItemDetailedView />}></Route>
-                  <Route path="*" element={<HomePage />}></Route>
-                </Route>
-              </Routes>
-            </BrowserRouter>
-            <hr />
-            <FooterBlock />
-          </SearchBlockContextProvider>
-        </FiltersContextProvider>
-      </ItemsContextProvider>
+        <ItemsContextProvider>
+          <FiltersContextProvider>
+            <SearchBlockContextProvider>
+              <BrowserRouter>
+                <NavigationBar />
+                <Routes>
+                  <Route path="/">
+                    <Route index element={<HomePage />}></Route>
+                    <Route path="catalog" element={<Catalog />}></Route>
+                    <Route path="cart" element={<Cart />}></Route>
+                    <Route
+                      path="item/:id"
+                      element={<ItemDetailedView />}
+                    ></Route>
+                    <Route path="*" element={<HomePage />}></Route>
+                    <Route path="checkout" element={<CheckoutPage />}></Route>
+                  </Route>
+                </Routes>
+              </BrowserRouter>
+              <hr />
+              <FooterBlock />
+            </SearchBlockContextProvider>
+          </FiltersContextProvider>
+        </ItemsContextProvider>
       </Provider>
     </>
   );
