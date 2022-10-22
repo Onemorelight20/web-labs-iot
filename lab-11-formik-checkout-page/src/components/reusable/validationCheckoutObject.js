@@ -1,6 +1,5 @@
 import * as Yup from "yup";
 
-
 const required = "This field is required";
 
 export const validationCheckoutObject = Yup.object({
@@ -23,5 +22,5 @@ export const validationCheckoutObject = Yup.object({
     )
     .required(required),
   address: Yup.string().required(required),
-  createdOn: Yup.date().default(() => new Date())
+  createdOn: Yup.date().default(() => new Date()),
 });

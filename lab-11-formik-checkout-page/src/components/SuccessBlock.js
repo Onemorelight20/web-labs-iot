@@ -2,8 +2,13 @@ import React from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Grid, Typography, Button } from "@mui/material";
 import { BasicStyledLink } from "./reusable/StyledLinks";
+import { useSelector, useDispatch } from "react-redux";
+import { removeFilmId } from "../redux/action";
 
 export const SuccessBlock = () => {
+  const filmIds = useSelector((state) => state.cart.value);
+  const dispatch = useDispatch();
+
   return (
     <>
       <Grid
@@ -23,7 +28,14 @@ export const SuccessBlock = () => {
         </Grid>
         <Grid item xs={3}>
           <BasicStyledLink to="/catalog">
-            <Button variant="contained">Back to catalog</Button>
+            <Button
+              variant="contained"
+              onClick={() =>
+                filmIds.forEach((id) => dispatch(removeFilmId(id)))
+              }
+            >
+              Back to catalog
+            </Button>
           </BasicStyledLink>
         </Grid>
       </Grid>
