@@ -1,10 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import Box from "@mui/system/Box";
-import Grid from "@mui/material/Grid";
+import { Grid, Typography } from "@mui/material";
 import FilmCard from "./components/reusable/FilmCard";
 import DataLoadingSymbol from "./components/reusable/DataLoadingSymbol";
 import { centeredContainer } from "./components/styles";
-import Typography from "@mui/material/Typography";
 import ErrorBlock from "./components/ErrorBlock";
 import { FilterBlock } from "./components/FilterBlock";
 import { ItemsContext } from "./components/ItemsContextProvider";
