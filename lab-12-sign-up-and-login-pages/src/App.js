@@ -13,6 +13,9 @@ import "normalize.css";
 import SearchBlockContextProvider from "./components/navigation-bar/SearchBlockContextProvider";
 import store from "./redux/store";
 import { CheckoutPage } from "./CheckoutPage";
+import { LoginPage } from "./LoginPage";
+import { SignupPage } from "./SignupPage";
+import Protected from "./components/Protected";
 
 function App() {
   return (
@@ -25,15 +28,56 @@ function App() {
                 <NavigationBar />
                 <Routes>
                   <Route path="/">
-                    <Route index element={<HomePage />}></Route>
-                    <Route path="catalog" element={<Catalog />}></Route>
-                    <Route path="cart" element={<Cart />}></Route>
+                    <Route path="login" element={<LoginPage />}></Route>
+                    <Route path="signup" element={<SignupPage />}></Route>
+                    <Route
+                      index
+                      element={
+                        <Protected isLoggedIn={false}>
+                          <HomePage />
+                        </Protected>
+                      }
+                    ></Route>
+                    <Route
+                      path="catalog"
+                      element={
+                        <Protected isLoggedIn={false}>
+                          <Catalog />
+                        </Protected>
+                      }
+                    ></Route>
+                    <Route
+                      path="cart"
+                      element={
+                        <Protected isLoggedIn={false}>
+                          <Cart />
+                        </Protected>
+                      }
+                    ></Route>
                     <Route
                       path="item/:id"
-                      element={<ItemDetailedView />}
+                      element={
+                        <Protected isLoggedIn={false}>
+                          <ItemDetailedView />
+                        </Protected>
+                      }
                     ></Route>
-                    <Route path="*" element={<HomePage />}></Route>
-                    <Route path="checkout" element={<CheckoutPage />}></Route>
+                    <Route
+                      path="checkout"
+                      element={
+                        <Protected isLoggedIn={false}>
+                          <CheckoutPage />
+                        </Protected>
+                      }
+                    ></Route>
+                    <Route
+                      path="*"
+                      element={
+                        <Protected isLoggedIn={false}>
+                          <HomePage />
+                        </Protected>
+                      }
+                    ></Route>
                   </Route>
                 </Routes>
               </BrowserRouter>
