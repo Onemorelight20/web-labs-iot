@@ -3,14 +3,14 @@ import { Navigate } from "react-router-dom";
 import { UserContext } from "./UserContextProvider";
 import { MessageContext } from "./MessageContextProvider";
 
-const Protected = ({ children }) => {
+const Unprotected = ({ children }) => {
   const [loggedUserMail, setLoggedUserMail] = useContext(UserContext);
   const [message, setMessage] = useContext(MessageContext);
 
-  if (loggedUserMail == null || loggedUserMail == "") {
-    setMessage("Log in to have access to other pages.");
-    return <Navigate to="/login" replace />;
+  if (loggedUserMail != null && loggedUserMail != "") {
+    setMessage("Already logged in.");
+    return <Navigate to="/" replace />;
   }
   return children;
 };
-export default Protected;
+export default Unprotected;

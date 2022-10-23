@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Form, Formik } from "formik";
 import { Button, Grid, Box, Typography } from "@mui/material";
 import { validationLoginObject } from "./reusable/validationObjects";
 import { CustomTextInput } from "./reusable/CustomTextInput";
 import { centeredContainer } from "./styles";
 import { BasicStyledLink } from "./reusable/StyledLinks";
+import { userWithSuchValuesExists } from "./localStorageUtills";
+import { UserContext } from "./UserContextProvider";
+import { MessageContext } from "./MessageContextProvider";
 
 export const LoginBlock = () => {
+  const [loggedUserMail, setLoggedUserMail] = useContext(UserContext);
+  const [message, setMessage] = useContext(MessageContext);
+
   return (
     <Formik
       initialValues={{
@@ -15,11 +21,15 @@ export const LoginBlock = () => {
       }}
       validationSchema={validationLoginObject}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        setTimeout(() => {
           setSubmitting(false);
           resetForm();
           console.log("Login inputs:", JSON.stringify(values));
-        }, 1000);
+          if(userWithSuchValuesExists(values)){
+            localStorage.setItem("loggedUserMail", values.email);
+            setLoggedUserMail(values.email);
+          } else {
+            setMessage("Check your email or password again.")
+          }
       }}
     >
       {(props) => (

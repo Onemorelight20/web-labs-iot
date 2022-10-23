@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+import { Box, Typography, Button} from "@mui/material";
 import MovieFilterIcon from "@mui/icons-material/MovieFilter";
 import Grid from "@mui/material/Grid";
 
 import SearchBlock from "./SearchBlock";
 import { logoTextStyle } from "../styles";
 import { BasicStyledLink } from "../reusable/StyledLinks";
+import { UserContext } from "../UserContextProvider";
+import { MessageContext } from "../MessageContextProvider";
 
 const NavigationBarMd = ({ pages }) => {
+  const [loggedUserMail, setLoggedUserMail] = useContext(UserContext);
+  const [message, setMessage] = useContext(MessageContext);
+
   let linksBody = pages.map((pageInfo) => {
     const [page, path] = pageInfo;
 
@@ -44,10 +47,30 @@ const NavigationBarMd = ({ pages }) => {
         </Typography>
         <Box>{linksBody}</Box>
       </Grid>
+
       <Grid item>
-        <Routes>
-          <Route path="/catalog" element={<SearchBlock />}></Route>
-        </Routes>
+        <Grid container spacing={2}>
+          <Grid item>
+            <Routes>
+              <Route path="/catalog" element={<SearchBlock />}></Route>
+            </Routes>
+          </Grid>
+          {loggedUserMail != null && loggedUserMail != "" ? (
+            <Grid item>
+              <Button
+                onClick={() => {
+                  setLoggedUserMail(null);
+                  localStorage.removeItem("loggedUserMail");
+                  setMessage("Successfully logged out.");
+                }}
+              >
+                Log out
+              </Button>
+            </Grid>
+          ) : (
+            <div></div>
+          )}
+        </Grid>
       </Grid>
     </Grid>
   );

@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Form, Formik } from "formik";
 import { Button, Grid, Box, Typography } from "@mui/material";
 import { validationSignupObject } from "./reusable/validationObjects";
 import { CustomTextInput } from "./reusable/CustomTextInput";
 import { centeredContainer } from "./styles";
 import { BasicStyledLink } from "./reusable/StyledLinks";
+import { addUser } from "./localStorageUtills";
+import { MessageContext } from "./MessageContextProvider";
 
 export const SignupBlock = () => {
+  const [message, setMessage] = useContext(MessageContext);
+
   return (
     <Formik
       initialValues={{
@@ -17,11 +21,12 @@ export const SignupBlock = () => {
       }}
       validationSchema={validationSignupObject}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        setTimeout(() => {
           setSubmitting(false);
           resetForm();
-          console.log("Login inputs:", JSON.stringify(values));
-        }, 1000);
+          console.log("Signup inputs:", JSON.stringify(values));
+          addUser(values).then(
+          window.history.pushState({}, undefined, "/login"));
+          setMessage("Successfully signed in. Now you can log in.");
       }}
     >
       {(props) => (
