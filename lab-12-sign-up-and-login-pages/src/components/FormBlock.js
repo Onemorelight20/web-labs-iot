@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Form, Formik } from "formik";
 import { Button, Grid, Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -6,9 +6,11 @@ import { centeredContainer } from "./styles";
 import { CustomTextInput } from "./reusable/CustomTextInput";
 import { validationCheckoutObject } from "./reusable/validationObjects";
 import { SuccessBlock } from "./SuccessBlock";
+import { UserContext } from "./UserContextProvider";
 
 function FormBlock() {
   const [success, setSuccess] = useState(false);
+  const [loggedUserMail] = useContext(UserContext);
   const navigate = useNavigate();
 
   return (
@@ -20,7 +22,7 @@ function FormBlock() {
           initialValues={{
             firstName: "",
             lastName: "",
-            email: "",
+            email: loggedUserMail,
             phoneNumber: "",
             address: "",
             createdOn: new Date(),

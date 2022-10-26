@@ -1,3 +1,3 @@
-import { cartSlice } from "./cartSlice"
+import { cartSlice } from "./cartSlice";
 
-export const { addFilmId, removeFilmId } = cartSlice.actions
+export const { addFilmId, removeFilmId } = cartSlice.actions;

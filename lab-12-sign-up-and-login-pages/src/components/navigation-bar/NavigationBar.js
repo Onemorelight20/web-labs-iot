@@ -21,20 +21,21 @@ const NavigationBar = () => {
     setAnchorElNav(null);
   };
 
-  const messageOutput = (message != null ? (
-    <>
-      <Container maxWidth="xl" sx={{ mt: 3 }}>
-        <Alert severity="info">{message}</Alert>
-        {(() => {
-          setTimeout(() => {
-            setMessage(null);
-          }, 4000);
-        })()}
-      </Container>
-    </>
-  ) : (
-    <div></div>
-  ));
+  const messageOutput =
+    message != null ? (
+      <>
+        <Container maxWidth="xl" sx={{ mt: 3 }}>
+          <Alert severity="info">{message}</Alert>
+          {(() => {
+            setTimeout(() => {
+              setMessage(null);
+            }, 4000);
+          })()}
+        </Container>
+      </>
+    ) : (
+      <div></div>
+    );
 
   return (
     <>

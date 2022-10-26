@@ -9,7 +9,7 @@ import { addUser } from "./localStorageUtills";
 import { MessageContext } from "./MessageContextProvider";
 
 export const SignupBlock = () => {
-  const [message, setMessage] = useContext(MessageContext);
+  const [, setMessage] = useContext(MessageContext);
 
   return (
     <Formik
@@ -17,16 +17,15 @@ export const SignupBlock = () => {
         username: "",
         email: "",
         password: "",
-        passwordConfirmation: ""
+        passwordConfirmation: "",
       }}
       validationSchema={validationSignupObject}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-          setSubmitting(false);
-          resetForm();
-          console.log("Signup inputs:", JSON.stringify(values));
-          addUser(values).then(
-          window.history.pushState({}, undefined, "/login"));
-          setMessage("Successfully signed in. Now you can log in.");
+        setSubmitting(false);
+        resetForm();
+        console.log("Signup inputs:", JSON.stringify(values));
+        addUser(values).then(window.history.pushState({}, undefined, "/login"));
+        setMessage("Successfully signed in. Now you can log in.");
       }}
     >
       {(props) => (

@@ -1,5 +1,12 @@
 import React, { useContext } from "react";
-import { IconButton, Button, Typography, Menu, MenuItem, Grid } from "@mui/material";
+import {
+  IconButton,
+  Button,
+  Typography,
+  Menu,
+  MenuItem,
+  Grid,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import MovieFilterIcon from "@mui/icons-material/MovieFilter";
 import { BasicStyledLink } from "../reusable/StyledLinks";
@@ -27,7 +34,7 @@ const NavigationBarXs = ({
     );
   });
   const [loggedUserMail, setLoggedUserMail] = useContext(UserContext);
-  const [message, setMessage] = useContext(MessageContext);
+  const [, setMessage] = useContext(MessageContext);
 
   return (
     <Grid

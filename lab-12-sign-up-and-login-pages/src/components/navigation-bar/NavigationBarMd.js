@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Box, Typography, Button} from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import MovieFilterIcon from "@mui/icons-material/MovieFilter";
 import Grid from "@mui/material/Grid";
 

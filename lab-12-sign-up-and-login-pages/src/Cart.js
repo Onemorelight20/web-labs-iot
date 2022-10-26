@@ -3,14 +3,14 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import FilmAsCartItem from "./components/reusable/FilmAsCartItem";
 import { Typography } from "@mui/material";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { ItemsContext } from "./components/ItemsContextProvider";
-import { BasicStyledLink } from "./components/reusable/StyledLinks"
+import { BasicStyledLink } from "./components/reusable/StyledLinks";
 
 function Cart() {
-  const [filmsData, setFilmsData] = useContext(ItemsContext);
-  const [filmsToShow, setFilmsToShow] = useState(filmsData);
+  const [filmsData] = useContext(ItemsContext);
+  const [filmsToShow] = useState(filmsData);
   const filmIds = useSelector((state) => state.cart.value);
   const navigate = useNavigate();
 

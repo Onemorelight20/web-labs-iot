@@ -11,7 +11,7 @@ export function FilmLengthSelector() {
 
   const handleChange = (event) => {
     const newValue = event.target.value;
-    setFiltersData((obj) => ({...obj, LENGTH_FILTER: newValue}));
+    setFiltersData((obj) => ({ ...obj, LENGTH_FILTER: newValue }));
   };
 
   return (

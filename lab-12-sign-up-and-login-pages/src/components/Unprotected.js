@@ -4,8 +4,8 @@ import { UserContext } from "./UserContextProvider";
 import { MessageContext } from "./MessageContextProvider";
 
 const Unprotected = ({ children }) => {
-  const [loggedUserMail, setLoggedUserMail] = useContext(UserContext);
-  const [message, setMessage] = useContext(MessageContext);
+  const [loggedUserMail, ] = useContext(UserContext);
+  const [, setMessage] = useContext(MessageContext);
 
   if (loggedUserMail != null && loggedUserMail != "") {
     setMessage("Already logged in.");

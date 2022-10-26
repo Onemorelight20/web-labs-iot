@@ -10,8 +10,8 @@ import { UserContext } from "./UserContextProvider";
 import { MessageContext } from "./MessageContextProvider";
 
 export const LoginBlock = () => {
-  const [loggedUserMail, setLoggedUserMail] = useContext(UserContext);
-  const [message, setMessage] = useContext(MessageContext);
+  const [, setLoggedUserMail] = useContext(UserContext);
+  const [, setMessage] = useContext(MessageContext);
 
   return (
     <Formik
@@ -21,15 +21,15 @@ export const LoginBlock = () => {
       }}
       validationSchema={validationLoginObject}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-          setSubmitting(false);
-          resetForm();
-          console.log("Login inputs:", JSON.stringify(values));
-          if(userWithSuchValuesExists(values)){
-            localStorage.setItem("loggedUserMail", values.email);
-            setLoggedUserMail(values.email);
-          } else {
-            setMessage("Check your email or password again.")
-          }
+        setSubmitting(false);
+        resetForm();
+        console.log("Login inputs:", JSON.stringify(values));
+        if (userWithSuchValuesExists(values)) {
+          localStorage.setItem("loggedUserMail", values.email);
+          setLoggedUserMail(values.email);
+        } else {
+          setMessage("Check your email or password again.");
+        }
       }}
     >
       {(props) => (

@@ -12,12 +12,7 @@ const FilmAsCartItem = ({ imgSrc, imgAlt, description, filmTitle, price }) => {
     <>
       <Grid container spacing={2}>
         <Grid item xs={3}>
-          <img
-            alt={filmTitle}
-            src={imgSrc}
-            height="130px"
-            width="100%"
-          />
+          <img alt={filmTitle} src={imgSrc} height="130px" width="100%" />
         </Grid>
         <Grid item>
           <Typography gutterBottom variant="h5" component="div">
