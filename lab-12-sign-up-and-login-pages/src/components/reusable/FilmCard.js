@@ -1,11 +1,13 @@
 import React from "react";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
+import {
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Button,
+  Typography,
+} from "@mui/material";
 import Image from "material-ui-image";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import { BasicStyledLink } from "./StyledLinks";
 import { useSelector, useDispatch } from "react-redux";
 import { addFilmId, removeFilmId } from "../../redux/action";

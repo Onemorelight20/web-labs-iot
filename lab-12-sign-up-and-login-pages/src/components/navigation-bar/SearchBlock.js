@@ -49,7 +49,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function SearchBlock() {
   const [searchBlockText, setSearchBlockText] = useContext(SearchBlockContext);
 
-
   return (
     <Search>
       <SearchIconWrapper>

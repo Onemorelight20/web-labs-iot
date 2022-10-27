@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import HeroBlock from "./components/HeroBlock";
 import Cards from "./components/Cards";
 
 function HomePage() {
-
   return (
     <>
       <HeroBlock />

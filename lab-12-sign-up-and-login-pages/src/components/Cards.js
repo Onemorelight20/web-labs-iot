@@ -11,12 +11,12 @@ import { ItemsContext } from "./ItemsContextProvider";
 
 const Cards = () => {
   const filmsToShowLimited = 3;
-  const [filmsData, setFilmsData] = useContext(ItemsContext);
+  const [filmsData] = useContext(ItemsContext);
   const [isDataLoading, setIsDataLoading] = useState(true);
   const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
-      setIsDataLoading(true);
+    setIsDataLoading(true);
     if (filmsData == -1 || (Array.isArray(filmsData) && filmsData.length > 0)) {
       setIsDataLoading(false);
     }
@@ -60,7 +60,9 @@ const Cards = () => {
             </Button>
           </Grid>
         </>
-      ) : <DataLoadingSymbol />}
+      ) : (
+        <DataLoadingSymbol />
+      )}
     </Box>
   );
 };

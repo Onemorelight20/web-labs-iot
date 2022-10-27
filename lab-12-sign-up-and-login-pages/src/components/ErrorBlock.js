@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
-function ErrorBlock({errorCode, text}) {
+function ErrorBlock({ errorCode, text }) {
   return (
     <>
       <Grid
@@ -14,12 +14,8 @@ function ErrorBlock({errorCode, text}) {
         style={{ minHeight: "100vh" }}
       >
         <Grid item xs={3}>
-          <Typography variant="h2">
-                Error {errorCode}
-          </Typography>
-          <Typography variant="body1">
-                {text}
-          </Typography>
+          <Typography variant="h2">Error {errorCode}</Typography>
+          <Typography variant="body1">{text}</Typography>
         </Grid>
       </Grid>
     </>

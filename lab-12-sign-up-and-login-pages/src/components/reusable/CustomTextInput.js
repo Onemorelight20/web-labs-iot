@@ -4,7 +4,7 @@ import { useField } from "formik";
 import { InputErrorMessage } from "./InputErrorMessage";
 
 export const CustomTextInput = ({ label, ...props }) => {
-  const [field, meta] = useField(props);
+  const [field, ] = useField(props);
 
   return (
     <>

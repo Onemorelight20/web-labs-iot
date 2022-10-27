@@ -1,15 +1,20 @@
-import React from "react";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
+import React, { useContext } from "react";
+import {
+  IconButton,
+  Button,
+  Typography,
+  Menu,
+  MenuItem,
+  Grid,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import MovieFilterIcon from "@mui/icons-material/MovieFilter";
-import Grid from "@mui/material/Grid";
 import { BasicStyledLink } from "../reusable/StyledLinks";
 import SearchBlock from "./SearchBlock";
 import { logoTextStyle } from "../styles";
 import { Route, Routes } from "react-router-dom";
+import { UserContext } from "../UserContextProvider";
+import { MessageContext } from "../MessageContextProvider";
 
 const NavigationBarXs = ({
   pages,
@@ -28,6 +33,8 @@ const NavigationBarXs = ({
       </BasicStyledLink>
     );
   });
+  const [loggedUserMail, setLoggedUserMail] = useContext(UserContext);
+  const [, setMessage] = useContext(MessageContext);
 
   return (
     <Grid
@@ -56,6 +63,21 @@ const NavigationBarXs = ({
           onClose={handleCloseNavMenu}
         >
           {menuItems}
+          {loggedUserMail != null && loggedUserMail != "" ? (
+            <MenuItem>
+              <Button
+                onClick={() => {
+                  setLoggedUserMail(null);
+                  localStorage.removeItem("loggedUserMail");
+                  setMessage("Successfully logged out.");
+                }}
+              >
+                Log out
+              </Button>
+            </MenuItem>
+          ) : (
+            <div></div>
+          )}
         </Menu>
       </Grid>
 
